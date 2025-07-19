@@ -1,0 +1,136 @@
+/* Container utama */
+.kalkulator-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.logo-image {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 240px;
+    height: auto;
+}
+
+/* Judul */
+.kalkulator-container h2 {
+    text-align: center;
+    color: #2d6a4f;
+    margin-bottom: 20px;
+}
+
+/* Label input */
+.input-group label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #2d6a4f;
+    font-size: 14px;
+}
+
+/* Input dan Select: ukuran sama */
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+    font-family: 'Poppins', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Dropdown styling tambahan */
+.input-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px;
+}
+
+/* Tombol */
+.input-group button {
+    width: 100%;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    padding: 14px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.input-group button:hover {
+    background: #1b4332;
+}
+
+.result-box {
+    margin-top: 20px;
+    background: #f0fdf4;
+    border: 1px solid #c6f6d5;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.result-box h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #2d6a4f;
+    font-size: 18px;
+}
+
+.total-energi {
+    font-size: 16px;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.hasil-angka {
+    font-weight: bold;
+    color: #1b4332;
+}
+
+/* Pesan error */
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Kotak pedoman isi piringku */
+.pedoman-box {
+    margin-top: 20px;
+    background: #f0fdf4;
+    border: 1px solid #c6f6d5;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.pedoman-box h3 {
+    margin-top: 1px;
+    color: #2d6a4f;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.pedoman-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
