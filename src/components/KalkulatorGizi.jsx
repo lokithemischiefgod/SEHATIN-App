@@ -95,13 +95,18 @@ function KalkulatorGizi() {
         {/* Kotak Hasil */}
         <div className="result-box">
           <h3>Hasil Perhitungan</h3>
-          <p className="status-gizi">
-            Status Gizi: {hasil.status}
-          </p>
-          <p className="total-energi">
-            Total Kebutuhan Energi:
-        <span className="hasil-angka"> {hasil.TEEKehamilan} kkal/hari</span>
-          </p>
+            <p>
+            Status Gizi: 
+        <span className={hasil.status === "Berat Badan Normal" ? "status-normal" : "status-tidak-normal"}>
+            {hasil.status}
+        </span>
+            </p>
+
+          <div className="total-energi-box">
+            <p>Total Kebutuhan Energi:</p>
+            <p className="angka-total-energi">{hasil.TEEKehamilan} kkal/hari</p>
+        </div>
+
         </div>
 
         {/* Kotak Rekomendasi Pedoman */}

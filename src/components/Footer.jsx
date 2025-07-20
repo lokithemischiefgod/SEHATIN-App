@@ -1,13 +1,25 @@
+import './Footer.css';
+
 function Footer() {
   return (
-    <footer style={{
-      backgroundColor: "#2d6a4f",
-      color: "#fff",
-      textAlign: "center",
-      padding: "12px",
-      fontSize: "14px"
-    }}>
-      &copy; 2025 SEHATIN - KKN PK 67 UNIVERSITAS HASANUDDIN.
+    <footer className="footer-container">
+      <div className="footer-content">
+        <div className="footer-section">
+          <p><strong>KKN-PK UNIVERSITAS HASANUDDIN ANGKATAN 67</strong></p>
+          <p>Desa Layoa, Kecamatan Gantarangkeke, Kabupaten Bantaeng, Provinsi Sulawesi Selatan</p>
+        </div>
+
+        <div className="footer-section">
+          <p><strong>DIBUAT OLEH :</strong></p>
+          <p>Andi Muhammad Farhan Abdillah (D121221032)</p>
+          <p>Supervisor : dr. Ainan Raena Nas, S.Ked., M.KM</p>
+        </div>
+
+      </div>
+
+      <div className="footer-bottom">
+        &copy; 2025 SEHATIN — KKN PK 67 UNHAS
+      </div>
     </footer>
   );
 }
