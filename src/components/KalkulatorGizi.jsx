@@ -96,17 +96,12 @@ function KalkulatorGizi() {
       ) : hasil ? (
         <>
           <div className="result-box">
-
-            <div className="hasil-header">
-              <h3>Hasil Perhitungan</h3>
-              <span className="timestamp">{timestamp}</span>
-            </div>
+            <h3>Hasil Perhitungan</h3>
 
             <p>
-                <strong>Nama Ibu Hamil:{" "}</strong>
-                <span className="nama-ibu">{nama}</span>
+              Nama Ibu Hamil:
+              <span className="nama-ibu"> {nama}</span>
             </p>
-
 
             <p>
               Status Gizi:&nbsp;
@@ -119,6 +114,9 @@ function KalkulatorGizi() {
               <p>Total Kebutuhan Energi:</p>
               <p className="angka-total-energi">{hasil.TEEKehamilan} kkal/hari</p>
             </div>
+
+            {/* Timestamp di bawah total energi */}
+            <p className="timestamp">{timestamp}</p>
           </div>
 
           <div className="pedoman-box">

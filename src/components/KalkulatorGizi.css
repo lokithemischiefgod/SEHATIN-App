@@ -1,3 +1,4 @@
+/* Container utama */
 .kalkulator-container {
     max-width: 500px;
     margin: 40px auto;
@@ -15,12 +16,14 @@
     height: auto;
 }
 
+/* Judul */
 .kalkulator-container h2 {
     text-align: center;
     color: #2d6a4f;
     margin-bottom: 20px;
 }
 
+/* Label input */
 .input-group label {
     font-weight: bold;
     margin-top: 10px;
@@ -29,6 +32,7 @@
     font-size: 14px;
 }
 
+/* Input dan Select */
 .input-group input,
 .input-group select {
     width: 100%;
@@ -42,6 +46,7 @@
     box-sizing: border-box;
 }
 
+/* Dropdown styling */
 .input-group select {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
@@ -50,6 +55,7 @@
     background-size: 10px;
 }
 
+/* Tombol */
 .input-group button {
     width: 100%;
     background: #2d6a4f;
@@ -92,11 +98,6 @@
     margin-bottom: 5px;
 }
 
-.hasil-angka {
-    font-weight: bold;
-    color: #1b4332;
-}
-
 .total-energi-box {
     background-color: #e8f5e9;
     border: 2px solid #1b4332;
@@ -128,6 +129,18 @@
     font-weight: bold;
 }
 
+.nama-ibu {
+    color: #2d6a4f;
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 14px;
+    color: #2d6a4f;
+    text-align: right;
+    margin-top: 10px;
+}
+
 /* Pesan error */
 .error-message {
     color: red;
@@ -136,6 +149,7 @@
     margin-top: 10px;
 }
 
+/* Pedoman isi piringku */
 .pedoman-box {
     margin-top: 20px;
     background: #f0fdf4;
@@ -159,28 +173,3 @@
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
-
-.hasil-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.hasil-header h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #000000;
-}
-
-.timestamp {
-    font-size: 12px;
-    color: #777777;
-    font-style: italic;
-}
-
-.nama-ibu {
-    color: #2d6a4f;
-    font-weight: bold;
-}
-
