@@ -2,12 +2,14 @@ import { useState } from "react";
 import './KalkulatorGizi.css';
 
 function KalkulatorGizi() {
+  const [nama, setNama] = useState("");
   const [berat, setBerat] = useState("");
   const [tinggi, setTinggi] = useState("");
   const [usia, setUsia] = useState("");
   const [hamil, setHamil] = useState("");
   const [aktivitas, setAktivitas] = useState("");
   const [hasil, setHasil] = useState(null);
+  const [timestamp, setTimestamp] = useState("");
 
   function hitung() {
     const bb = parseFloat(berat);
@@ -16,8 +18,8 @@ function KalkulatorGizi() {
     const usiaHamil = parseInt(hamil);
     const faktorAktivitas = parseFloat(aktivitas);
 
-    if (isNaN(bb) || isNaN(tb) || isNaN(umur) || isNaN(usiaHamil) || aktivitas === "") {
-      setHasil("Harap lengkapi semua data dan pilih faktor aktivitas.");
+    if (isNaN(bb) || isNaN(tb) || isNaN(umur) || isNaN(usiaHamil) || aktivitas === "" || nama.trim() === "") {
+      setHasil("Harap lengkapi semua data");
       return;
     }
 
@@ -40,6 +42,9 @@ function KalkulatorGizi() {
     let tambahan = usiaHamil <= 13 ? 100 : 300;
     const TEEKehamilan = TEE + tambahan;
 
+    const waktu = new Date().toLocaleString();
+    setTimestamp(waktu);
+
     setHasil({
       status,
       TEEKehamilan: TEEKehamilan.toFixed(2)
@@ -53,6 +58,13 @@ function KalkulatorGizi() {
       <h2>Kalkulator Gizi Ibu Hamil</h2>
 
       <div className="input-group">
+        <label>Nama Ibu Hamil</label>
+        <input
+          type="text"
+          value={nama}
+          onChange={(e) => setNama(e.target.value)}
+        />
+
         <label>Berat Badan (kg)</label>
         <input type="number" value={berat} onChange={(e) => setBerat(e.target.value)} />
 
@@ -84,14 +96,24 @@ function KalkulatorGizi() {
       ) : hasil ? (
         <>
           <div className="result-box">
-            <h3>Hasil Perhitungan</h3>
+
+            <div className="hasil-header">
+              <h3>Hasil Perhitungan</h3>
+              <span className="timestamp">{timestamp}</span>
+            </div>
+
             <p>
-                Status Gizi:{" "}
-                <span className={hasil.status === "Berat Badan Normal" ? "status-normal" : "status-tidak-normal"}>
-                {hasil.status}
-                </span>
+                <strong>Nama Ibu Hamil:{" "}</strong>
+                <span className="nama-ibu">{nama}</span>
             </p>
 
+
+            <p>
+              Status Gizi:&nbsp;
+              <span className={hasil.status === "Berat Badan Normal" ? "status-normal" : "status-tidak-normal"}>
+                {hasil.status}
+              </span>
+            </p>
 
             <div className="total-energi-box">
               <p>Total Kebutuhan Energi:</p>
