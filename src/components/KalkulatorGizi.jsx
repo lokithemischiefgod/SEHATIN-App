@@ -94,7 +94,7 @@ function KalkulatorGizi() {
     const imt = bbAwalVal / Math.pow(tb / 100, 2);
     const BEE = 655 + (9.6 * bbSekarangVal) + (1.8 * tb) - (4.7 * umur);
     const TEE = BEE * faktorAktivitas;
-    const tambahan = usiaHamil <= 13 ? 100 : 300;
+    const tambahan = usiaHamil <= 13 ? 180 : 300;
     const TEEKehamilan = TEE + tambahan;
 
     const evaluasi = evaluasiKenaikanBB(imt, usiaHamil, bbAwalVal, bbSekarangVal);
