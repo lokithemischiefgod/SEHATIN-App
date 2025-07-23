@@ -9,6 +9,7 @@
     font-family: 'Poppins', Arial, sans-serif;
 }
 
+/* Logo */
 .logo-image {
     display: block;
     margin: 0 auto 20px;
@@ -46,12 +47,12 @@
     box-sizing: border-box;
 }
 
-/* Dropdown styling */
+/* Dropdown */
 .input-group select {
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 10px top 50%;
+    background-position: right 10px center;
     background-size: 10px;
 }
 
@@ -74,6 +75,7 @@
     background: #1b4332;
 }
 
+/* Kotak hasil */
 .result-box {
     margin-top: 20px;
     background: #f0fdf4;
@@ -91,13 +93,7 @@
     font-size: 18px;
 }
 
-.total-energi {
-    font-size: 16px;
-    color: #000000;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
+/* Total energi */
 .total-energi-box {
     background-color: #e8f5e9;
     border: 2px solid #1b4332;
@@ -119,6 +115,7 @@
     color: #1b5e20;
 }
 
+/* Status berat badan */
 .status-normal {
     color: #2d6a4f;
     font-weight: bold;
@@ -129,11 +126,19 @@
     font-weight: bold;
 }
 
+/* Nama ibu */
 .nama-ibu {
-    color: #2d6a4f;
+    color: #000000;
     font-weight: bold;
 }
 
+/* Hasil angka hijau */
+.hasil-angka {
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+/* Timestamp */
 .timestamp {
     font-size: 14px;
     color: #2d6a4f;
@@ -149,7 +154,7 @@
     margin-top: 10px;
 }
 
-/* Pedoman isi piringku */
+/* Pedoman Isi Piringku */
 .pedoman-box {
     margin-top: 20px;
     background: #f0fdf4;
