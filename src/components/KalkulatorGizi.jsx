@@ -15,7 +15,7 @@ function KalkulatorGizi() {
   function evaluasiKenaikanBB(imtAwal, usiaHamil, bbAwal, bbSekarang, tinggi) {
     let kenaikanBB = bbSekarang - bbAwal;
     kenaikanBB = Math.round(kenaikanBB * 10) / 10; // pembulatan 1 desimal
-    const trimester = usiaHamil <= 13 ? 1 : 2;
+    const trimester = usiaHamil <= 12 ? 1 : 2;
     let status = "";
     let rekomendasi = "";
     let kelebihan = 0;
@@ -38,7 +38,7 @@ function KalkulatorGizi() {
 
     } else {
       tampilkanPanduan = true;
-      const mingguLanjut = usiaHamil - 13;
+      const mingguLanjut = usiaHamil - 12;
 
       let min = 0, max = 0;
 
