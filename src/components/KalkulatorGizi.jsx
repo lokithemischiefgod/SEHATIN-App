@@ -36,7 +36,8 @@ function KalkulatorGizi() {
     } else {
       tampilkanKenaikan = true;
       const mingguLanjut = usiaHamil - 13;
-      const bbMingguan = kenaikanBB / mingguLanjut;
+      const bbMingguan = +(kenaikanBB / mingguLanjut).toFixed(2);
+
 
       let min = 0, max = 0;
 
@@ -57,12 +58,17 @@ function KalkulatorGizi() {
       if (bbMingguan < min) {
         status = "Kurang";
         kekurangan = ((min * mingguLanjut) - kenaikanBB).toFixed(1);
+        kelebihan = 0;
       } else if (bbMingguan > max) {
         status = "Berlebih";
         kelebihan = (kenaikanBB - (max * mingguLanjut)).toFixed(1);
+        kekurangan = 0;
       } else {
         status = "Normal";
+        kelebihan = 0;
+        kekurangan = 0;
       }
+
     }
 
     return {
