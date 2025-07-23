@@ -13,31 +13,32 @@ function KalkulatorGizi() {
   const [timestamp, setTimestamp] = useState("");
 
   function evaluasiKenaikanBB(imtAwal, usiaHamil, bbAwal, bbSekarang, tinggi) {
-    const kenaikanBB = bbSekarang - bbAwal;
+    let kenaikanBB = bbSekarang - bbAwal;
+    kenaikanBB = Math.round(kenaikanBB * 10) / 10; // pembulatan 1 desimal
     const trimester = usiaHamil <= 13 ? 1 : 2;
     let status = "";
     let rekomendasi = "";
     let kelebihan = 0;
     let kekurangan = 0;
-    let tampilkanKenaikan = false;
+    let tampilkanPanduan = false;
 
     if (trimester === 1) {
-      const imtSekarang = bbSekarang / Math.pow(tinggi / 100, 2);
+      const min = 0.5;
+      const max = 2.0;
 
-      if (imtSekarang < 18.5) {
-        status = "Gizi Kurang";
-      } else if (imtSekarang < 25) {
-        status = "Normal";
-      } else if (imtSekarang < 30) {
-        status = "Kelebihan BB";
+      if (kenaikanBB < min) {
+        status = "Kurang";
+        kekurangan = (min - kenaikanBB).toFixed(1);
+      } else if (kenaikanBB > max) {
+        status = "Berlebih";
+        kelebihan = (kenaikanBB - max).toFixed(1);
       } else {
-        status = "Obesitas";
+        status = "Normal";
       }
-    } else {
-      tampilkanKenaikan = true;
-      const mingguLanjut = usiaHamil - 13;
-      const bbMingguan = +(kenaikanBB / mingguLanjut).toFixed(2);
 
+    } else {
+      tampilkanPanduan = true;
+      const mingguLanjut = usiaHamil - 13;
 
       let min = 0, max = 0;
 
@@ -55,29 +56,27 @@ function KalkulatorGizi() {
         rekomendasi = "0.2 kg/minggu";
       }
 
-      if (bbMingguan < min) {
+      const targetMin = Math.round(((mingguLanjut * min) + 2) * 10) / 10;
+      const targetMax = Math.round(((mingguLanjut * max) + 2) * 10) / 10;
+
+      if (kenaikanBB < targetMin) {
         status = "Kurang";
-        kekurangan = ((min * mingguLanjut) - kenaikanBB).toFixed(1);
-        kelebihan = 0;
-      } else if (bbMingguan > max) {
+        kekurangan = (targetMin - kenaikanBB).toFixed(1);
+      } else if (kenaikanBB > targetMax) {
         status = "Berlebih";
-        kelebihan = (kenaikanBB - (max * mingguLanjut)).toFixed(1);
-        kekurangan = 0;
+        kelebihan = (kenaikanBB - targetMax).toFixed(1);
       } else {
         status = "Normal";
-        kelebihan = 0;
-        kekurangan = 0;
       }
-
     }
 
     return {
       status,
       rekomendasi,
-      kenaikanBB: tampilkanKenaikan ? kenaikanBB.toFixed(1) : null,
-      kelebihan: tampilkanKenaikan ? kelebihan : 0,
-      kekurangan: tampilkanKenaikan ? kekurangan : 0,
-      tampilkanKenaikan
+      kenaikanBB: kenaikanBB.toFixed(1),
+      kelebihan,
+      kekurangan,
+      tampilkanPanduan
     };
   }
 
@@ -107,13 +106,14 @@ function KalkulatorGizi() {
     setTimestamp(new Date().toLocaleString());
 
     setHasil({
+      trimester: usiaHamil <= 13 ? 1 : 2,
       statusKenaikan: evaluasi.status,
       rekomendasi: evaluasi.rekomendasi,
       kenaikanTotal: evaluasi.kenaikanBB,
       kelebihan: evaluasi.kelebihan,
       kekurangan: evaluasi.kekurangan,
       TEEKehamilan: TEEKehamilan.toFixed(2),
-      tampilkanKenaikan: evaluasi.tampilkanKenaikan
+      tampilkanPanduan: evaluasi.tampilkanPanduan
     });
   }
 
@@ -162,29 +162,27 @@ function KalkulatorGizi() {
           <div className="result-box">
             <h3>Hasil Perhitungan</h3>
 
-            <p><strong className="nama-ibu">Nama Ibu Hamil:</strong>{" "}
-              <span className="hasil-angka">{nama}</span></p>
+            <p><strong className="nama-ibu">Nama Ibu Hamil:</strong> <span className="hasil-angka">{nama}</span></p>
 
-            <p>Status Gizi:&nbsp;
-              <span className={hasil.statusKenaikan === "Normal" || hasil.statusKenaikan === "Gizi Kurang" ? "status-normal" : "status-tidak-normal"}>
+            <p>
+              Status Kenaikan BB:&nbsp;
+              <span className={hasil.statusKenaikan === "Normal" ? "status-normal" : "status-tidak-normal"}>
                 {hasil.statusKenaikan}
               </span>
             </p>
 
-            {hasil.tampilkanKenaikan && (
-              <>
-                <p>Total Kenaikan BB: <span className="hasil-angka">{hasil.kenaikanTotal} kg</span></p>
+            <p>Total Kenaikan BB: <span className="hasil-angka">{hasil.kenaikanTotal} kg</span></p>
 
-                {hasil.kelebihan > 0 && (
-                  <p>Kelebihan BB: <span className="hasil-angka">{hasil.kelebihan} kg</span></p>
-                )}
+            {hasil.kelebihan > 0 && (
+              <p>Kelebihan BB: <span className="hasil-angka">{hasil.kelebihan} kg</span></p>
+            )}
 
-                {hasil.kekurangan > 0 && (
-                  <p>Kekurangan BB: <span className="hasil-angka">{hasil.kekurangan} kg</span></p>
-                )}
+            {hasil.kekurangan > 0 && (
+              <p>Kekurangan BB: <span className="hasil-angka">{hasil.kekurangan} kg</span></p>
+            )}
 
-                <p>Panduan: <span className="hasil-angka">{hasil.rekomendasi}</span></p>
-              </>
+            {hasil.tampilkanPanduan && (
+              <p>Panduan Kenaikan BB: <span className="hasil-angka">{hasil.rekomendasi}</span></p>
             )}
 
             <div className="total-energi-box">
