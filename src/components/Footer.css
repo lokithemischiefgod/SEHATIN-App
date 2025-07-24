@@ -17,6 +17,11 @@
     line-height: 1.4;
 }
 
+.footer-contact p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
 .footer-bottom {
     margin-top: 20px;
     border-top: 1px solid #ffffff44;

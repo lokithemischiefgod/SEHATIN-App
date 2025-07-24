@@ -15,6 +15,11 @@ function Footer() {
           <p>Supervisor : dr. Ainan Raena Nas, S.Ked., M.KM</p>
         </div>
 
+        <div className="footer-contact">
+          <p><strong>HUBUNGI KAMI :</strong></p>
+          <p>WhatsApp/Telepon : 0877-1666-3695</p>
+          <p>Instagram : @kknpk67_desalayoa</p>
+        </div>
       </div>
 
       <div className="footer-bottom">
